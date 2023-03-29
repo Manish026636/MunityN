@@ -68,15 +68,15 @@ const VoteResult = () => {
 
                                         <div class=" grid grid-cols-3 sm:grid-cols-3 mt-8 md:grid-cols-3 gap-2">
                                             <div class="bg-[#38AAFD] text-center font-bold text-white p-4 rounded-xl">
-                                            <h1>20</h1>
+                                            <h1 className='text-xl'>20</h1>
                                             <p className='text-xs'>Present</p>
                                             </div>
                                             <div class="bg-[#44DE5C] text-center font-bold text-white p-4 rounded-xl">
-                                            <h1>18</h1>
-                                            <p className='text-xs'>In Favor</p>
+                                            <h1 className='text-xl'>18</h1>
+                                            <p className='text-xs'>Favor</p>
                                             </div>
                                             <div class="bg-[#FE5353] text-center font-bold text-white p-4 rounded-xl">
-                                            <h1>2</h1>
+                                            <h1 className='text-xl'>2</h1>
                                             <p className='text-xs'>Against</p>
                                             </div>
                                         </div>
