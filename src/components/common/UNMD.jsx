@@ -1,11 +1,11 @@
 import React from 'react'
 
-const GSL = () => {
+const UNMD = () => {
   return (
     <div>
-      GSL
+      UNMD
     </div>
   )
 }
 
-export default GSL
+export default UNMD
