@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import {Navbar,MobileNav,Typography,Button,IconButton} from "@material-tailwind/react";
-import { Link } from "react-router-dom";
 const NavHead = () => {
+  const tabs = [
+    { id: 1, label: 'Tab 1', path: '/tab1' },
+    { id: 2, label: 'Tab 2', path: '/tab2' },
+    { id: 3, label: 'Tab 3', path: '/tab3' }
+  ];
+
+  const location = useLocation();
+  const [currentTab, setCurrentTab] = useState(null);
+
+  useEffect(() => {
+    const tab = tabs.find(tab => tab.path === location.pathname);
+    setCurrentTab(tab ? tab.id : null);
+  }, [location, tabs]);
 
     const [openNav, setOpenNav] = React.useState(false);
  
@@ -45,7 +58,7 @@ const NavHead = () => {
         <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
           <Typography
             as="a"
-            href="#"
+            href="/"
             className=" cursor-pointer  font-bold"
           >
            <img src="Mu.png" width="80px" alt=""/>
@@ -105,18 +118,19 @@ const NavHead = () => {
           </Button>
         </MobileNav>
       </Navbar>
-      <div className='container mx-auto flex justify-center mt-2 md:mt-4 '>
-                <div className='bg-gradient-to-r from-cyan-200 to-indigo-100 grid grid-cols-3 md:grid-cols-3 gap-4 container mx-3  justify-center mt-12 h-16 rounded-2xl w-full md:w-1/2 '>
-                    <div class="flex items-center justify-center m-2 ">
-                        <Link to="/GSL"><button class="bg-white hover:bg-blue-700 hover:text-white text-gray-500 font-bold py-2 px-4 rounded-xl w-24 md:w-40">GSL</button></Link>
-                    </div><div class="flex items-center justify-center">
-                        <Link to="/DYAM"><button class="bg-white hover:bg-blue-700 hover:text-white text-gray-500 font-bold py-2 px-4 rounded-xl w-24 md:w-40">MD</button></Link>
-                    </div><div class="flex items-center justify-center m-2">
-                        <Link to="/UNMD"><button class="bg-white hover:bg-blue-700 hover:text-white text-gray-500 font-bold py-2 px-4 rounded-xl w-24 md:w-40">UNMD</button></Link>
-                    </div>
-                </div>
-                
-            </div>
+      <div className="flex justify-center items-center mt-5">
+      {tabs.map(tab => (
+        <Link
+          key={tab.id}
+          to={tab.path}
+          className={`py-3 px-6 text-sm font-medium text-gray-700 border-b-2 ${
+            currentTab === tab.id ? 'border-indigo-500' : 'border-gray-200'
+          }`}
+        >
+          {tab.label}
+        </Link>
+      ))}
+    </div>
       </>
   )
 }
