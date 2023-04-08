@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
 import {
   Navbar,
@@ -7,8 +8,26 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
+import CPDashboard from '../chairperson/CPDashboard';
 
 const NavHead = () => {
+  const tabs = [
+    { id: 1, label: 'GSL', path: 'tab1' },
+    { id: 2, label: 'MDCOC', path: 'tab2' },
+    { id: 3, label: 'UNMDCOC', path: 'tab3' },
+    { id: 4, label: 'ROLLCALL', path: 'tab4' }
+  ];
+
+  const params = useParams();
+  const navigate = useNavigate();
+  const {tab} = params;
+  const [currentTab, setCurrentTab] = useState(null);
+
+  useEffect(() => {
+    const tabId = tabs.find(res => res.path === tab);
+    if(tab && !tabId) return navigate('/404');
+    setCurrentTab(tabId ? tabId.id : null);
+  }, [tab]);
 
     const [openNav, setOpenNav] = React.useState(false);
  
@@ -112,6 +131,22 @@ const NavHead = () => {
           </Button>
         </MobileNav>
       </Navbar>
+      
+      <div className="flex justify-center items-center mt-5">
+      {tabs.map(tab => (
+        <Link
+          key={tab.id}
+          to={`/dashboard/${tab.path}`}
+          className={`py-3 px-6 text-sm font-medium text-gray-700 border-b-2 ${
+            currentTab === tab.id ? 'border-indigo-500' : 'border-gray-200'
+          }`}
+        >
+          {tab.label}
+        </Link>
+      ))}
+    </div>
+
+   {!tab && <CPDashboard/>}
       
       </>
   )
