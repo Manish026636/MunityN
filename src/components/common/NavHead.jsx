@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 import CPDashboard from '../chairperson/CPDashboard';
-
+import { Link } from "react-router-dom";
 import {
   Navbar,
   MobileNav,
@@ -12,7 +12,6 @@ import {
   MenuList,
   MenuItem,
   Avatar,
-  Card,
   IconButton,
 } from "@material-tailwind/react";
 import {
@@ -24,7 +23,7 @@ import {
   FaInbox,
   FaLifeRing,
   FaPowerOff,
-  FaRocket,
+  
   FaBars,
 } from "react-icons/fa";
 
@@ -117,11 +116,7 @@ function ProfileMenu() {
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const triggers = {
-    onMouseEnter: () => setIsMenuOpen(true),
-    onMouseLeave: () => setIsMenuOpen(false),
-  };
-
+  
   
 
   return (
@@ -224,13 +219,8 @@ const NavHead = () => {
     <>
    <Navbar className="mx-auto max-w-screen-4xl p-2 lg:pl-6">
         <div className="relative mx-auto flex items-center text-blue-gray-900">
-          <Typography
-            as="a"
-            href="#"
-            className="mr-4 w-[80%] ml-2 cursor-pointer py-1.5 font-medium"
-          >
-            Material Tailwind
-          </Typography>
+        
+        <Link to="/dashboard"><img src="milo1.png" alt="Logo" className=" h-5 w-70  mr-2" /></Link>
           <div className="absolute top-2/4 left-2/4 hidden -translate-x-2/4 -translate-y-2/4 lg:block">
             <NavList />
           </div>
@@ -257,8 +247,8 @@ const NavHead = () => {
         {tabs.map(tab => (
           <button
             key={tab.id}
-            className={`py-3 bg-white hover:opacity-90 rounded-xl px-4 md:px-12 text-sm font-bold m-2  text-gray-700 border-b-2${
-              currentTab === tab.id ? 'border-green-500 text-white   bg-blue-300' : 'border-gray-800 '
+            className={`py-3 hover:opacity-90 rounded-xl px-4 md:px-12 text-sm font-bold m-2  text-gray-700 border-b-2${
+              currentTab === tab.id ? 'border-green-500 text-white   bg-blue-300' : 'border-gray-800 bg-white  '
             }`}
             onClick={() => navigate(`/dashboard/${tab.path}`)}
           >
