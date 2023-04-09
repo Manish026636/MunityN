@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 import CPDashboard from '../chairperson/CPDashboard';
 import { Link } from "react-router-dom";
-import Dadd from "./Dadd";
 import {
   Navbar,
   MobileNav,
@@ -24,9 +23,10 @@ import {
   FaInbox,
   FaLifeRing,
   FaPowerOff,
-  
+
   FaBars,
 } from "react-icons/fa";
+import Gslsec from "./Gslsec";
 
 // profile menu component
 const profileMenuItems = [
@@ -73,9 +73,8 @@ function ProfileMenu() {
           />
           <FaChevronDown
             strokeWidth={2.5}
-            className={`h-3 w-3 transition-transform ${
-              isMenuOpen ? "rotate-180" : ""
-            }`}
+            className={`h-3 w-3 transition-transform ${isMenuOpen ? "rotate-180" : ""
+              }`}
           />
         </Button>
       </MenuHandler>
@@ -86,11 +85,10 @@ function ProfileMenu() {
             <MenuItem
               key={label}
               onClick={closeMenu}
-              className={`flex items-center gap-2 rounded ${
-                isLastItem
+              className={`flex items-center gap-2 rounded ${isLastItem
                   ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
                   : ""
-              }`}
+                }`}
             >
               {React.createElement(icon, {
                 className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
@@ -117,23 +115,23 @@ function ProfileMenu() {
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  
-  
+
+
 
   return (
     <React.Fragment>
       <Menu open={isMenuOpen} handler={setIsMenuOpen}>
         <MenuHandler>
           <Typography as="a" href="#" variant="small" className="font-normal">
-            
+
           </Typography>
         </MenuHandler>
-        
-          
-            
+
+
+
       </Menu>
-      
-      
+
+
     </React.Fragment>
   );
 }
@@ -188,16 +186,16 @@ const NavHead = () => {
 
   const params = useParams();
   const navigate = useNavigate();
-  const {tab} = params;
+  const { tab } = params;
   const [currentTab, setCurrentTab] = useState(null);
 
   useEffect(() => {
     const tabId = tabs.find(res => res.path === tab);
-    if(tab && !tabId) return navigate('/404');
+    if (tab && !tabId) return navigate('/404');
     setCurrentTab(tabId ? tabId.id : null);
   }, [tab]);
 
-    const [openNav, setOpenNav] = React.useState(false);
+  const [openNav, setOpenNav] = React.useState(false);
 
   React.useEffect(() => {
     window.addEventListener(
@@ -218,10 +216,10 @@ const NavHead = () => {
 
   return (
     <>
-   <Navbar className="mx-auto max-w-screen-4xl p-2 lg:pl-6">
+      <Navbar className="mx-auto max-w-screen-4xl p-2 lg:pl-6">
         <div className="relative mx-auto flex items-center text-blue-gray-900">
-        
-        <Link to="/dashboard"><img src="milo1.png" alt="Logo" className=" h-5 w-70  mr-2" /></Link>
+
+          <Link to="/dashboard"><img src="milo2.png" alt="Logo" className=" h-6 w-82  mr-2" /></Link>
           <div className="absolute top-2/4 left-2/4 hidden -translate-x-2/4 -translate-y-2/4 lg:block">
             <NavList />
           </div>
@@ -243,26 +241,27 @@ const NavHead = () => {
         </MobileNav>
       </Navbar>
       <div className="bg-gray-100">
-      <div className="flex justify-center items-center mt-10">
-      <div className="bg-gradient-to-r from-cyan-200 to-indigo-100 rounded-xl p-2">
-        {tabs.map(tab => (
-          <button
-            key={tab.id}
-            className={`py-3 hover:opacity-90 rounded-xl px-4 md:px-12 text-sm font-bold m-2  text-gray-700 border-b-2${
-              currentTab === tab.id ? 'border-green-500 text-white   bg-blue-300' : 'border-gray-800 bg-white  '
-            }`}
-            onClick={() => navigate(`/dashboard/${tab.path}`)}
-          >
-            {tab.label}
-          </button>
-        ))}
+        <div className="flex justify-center items-center mt-10">
+          <div className="bg-gradient-to-r from-cyan-200 to-indigo-100 rounded-xl p-2">
+            {tabs.map(tab => (
+              <button
+                key={tab.id}
+                className={`py-3 hover:opacity-90 rounded-xl px-4 md:px-12 text-sm font-bold m-2  text-gray-700 border-b-2${currentTab === tab.id ? 'border-green-500 text-white   bg-blue-300' : 'border-gray-800 bg-white  '
+                  }`}
+                onClick={() => navigate(`/dashboard/${tab.path}`)}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+        
       </div>
-</div>
-</div>
-<Dadd/>
-   {!tab && <CPDashboard/>}
+      <Gslsec/>
 
-      </>
+      {!tab && <CPDashboard />}
+
+    </>
   )
 }
 
