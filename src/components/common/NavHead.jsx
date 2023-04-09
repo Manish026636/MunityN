@@ -26,7 +26,7 @@ import {
 
   FaBars,
 } from "react-icons/fa";
-import Gslsec from "./Gslsec";
+import Dadd from "./Dadd";
 
 // profile menu component
 const profileMenuItems = [
@@ -257,7 +257,7 @@ const NavHead = () => {
         </div>
         
       </div>
-      <Gslsec/>
+      <Dadd/>
 
       {!tab && <CPDashboard />}
 
