@@ -1,13 +1,68 @@
-import React from "react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from 'react';
+import { FaPlay, FaPause } from 'react-icons/fa';
 
-
+function TimerButton() {
+    const [time, setTime] = useState(0);
+    const [isPaused, setIsPaused] = useState(1);
+    const intervalRef = useRef(null);
+  
+    // start or resume timer
+    function startTimer() {
+      setIsPaused(false);
+      intervalRef.current = setInterval(() => {
+        setTime(prevTime => prevTime + 1);
+      }, 1000);
+    }
+  
+    // pause timer
+    function pauseTimer() {
+      setIsPaused(true);
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  
+    // reset timer
+    function resetTimer() {
+      setIsPaused(false);
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+      setTime(0);
+    }
+  
+    // stop timer when component unmounts
+    useEffect(() => {
+      return () => clearInterval(intervalRef.current);
+    }, []);
+  
+    return (
+      <div className="flex items-center bg-gray-500 space-x-3  py-5 px-4 rounded-lg">
+        <span className="text-lg font-bold">{time}s</span>
+        {isPaused ? (
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg"
+            onClick={startTimer}
+          >
+            <FaPlay />
+          </button>
+        ) : (
+          <button
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg"
+            onClick={pauseTimer}
+          >
+            <FaPause />
+          </button>
+        )}
+      </div>
+    );
+  }
+  
 const Gslsec = () => {
     const [activeIndex, setActiveIndex] = useState(-1);
 
     function handleStartClick(index) {
         setActiveIndex(index);
     }
+    
 
     return (
         <div className='container p-4 mx-auto   flex flex-col md:flex-row gap-4'>
@@ -174,7 +229,12 @@ const Gslsec = () => {
                     <h1 className='text-gray-800 text-xl font-bold mt-7'>Deligate Info</h1>
                 </div>
                 <div className="p-4 py-5 mt-7 h-[50vh]  rounded-b-lg bg-light-blue-100">
-                                
+                        <div className="bg-white rounded-lg w-28 h-28 ">
+                                <div className=" text-sm font-bold text-center">
+                                    <h2 className='py-3'>Harsh Gurche</h2>
+                                    <TimerButton />
+                                </div>
+                        </div>        
                 </div>
 
             </div>
