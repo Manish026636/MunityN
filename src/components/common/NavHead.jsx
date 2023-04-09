@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 import CPDashboard from '../chairperson/CPDashboard';
 import { Link } from "react-router-dom";
+import Dadd from "./Dadd";
 import {
   Navbar,
   MobileNav,
@@ -179,7 +180,7 @@ function NavList() {
 
 const NavHead = () => {
   const tabs = [
-    { id: 1, label: 'GSL', path: 'tab1' },
+    { id: 1, label: 'GSL', path: 'Dadd' },
     { id: 2, label: 'MD', path: 'tab2' },
     { id: 3, label: 'UNMD', path: 'tab3' },
     { id: 4, label: 'RoCa', path: 'tab4' }
@@ -258,6 +259,7 @@ const NavHead = () => {
       </div>
 </div>
 </div>
+<Dadd/>
    {!tab && <CPDashboard/>}
 
       </>
