@@ -257,8 +257,6 @@ const NavHead = () => {
         </div>
         
       </div>
-      <Gslsec/>
-
       {!tab && <CPDashboard />}
 
     </>
