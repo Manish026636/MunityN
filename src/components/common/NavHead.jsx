@@ -137,8 +137,8 @@ const NavHead = () => {
         {tabs.map(tab => (
           <button
             key={tab.id}
-            className={`py-3 bg-white hover:opacity-90 rounded-xl px-4 md:px-12 text-sm font-bold m-2  text-gray-700 border-b-2${
-              currentTab === tab.id ? 'border-green-500 text-white   bg-blue-300' : 'border-gray-800 '
+            className={`py-3  hover:opacity-90 rounded-xl px-4 md:px-12 text-sm font-bold m-2  text-gray-700 border-b-2${
+              currentTab === tab.id ? 'border-green-500 text-white   bg-blue-300' : 'border-gray-800 bg-white'
             }`}
             onClick={() => navigate(`/dashboard/${tab.path}`)}
           >
