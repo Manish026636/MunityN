@@ -240,7 +240,7 @@ const NavHead = () => {
           <NavList />
         </MobileNav>
       </Navbar>
-      <div className="bg-gray-100">
+      <div className="mb-40 bg-gray-100">
         <div className="flex justify-center items-center mt-10">
           <div className="bg-gradient-to-r from-cyan-200 to-indigo-100 rounded-xl p-2">
             {tabs.map(tab => (
@@ -257,7 +257,6 @@ const NavHead = () => {
         </div>
         
       </div>
-      <Gslsec/>
 
       {!tab && <CPDashboard />}
 
