@@ -24,7 +24,7 @@ function FeedbackMo() {
     <>
       {/* Button to open modal */}
       <button
-        className="bg-blue-500 font-bold text-white py-2 px-6 rounded-xl"
+        className="bg-blue-500 font-bold text-white py-3 px-6 rounded-lg"
         onClick={() => setIsOpen(true)}>
         Give Feedback
       </button>
