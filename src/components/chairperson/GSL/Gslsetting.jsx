@@ -18,11 +18,11 @@ const Gslsetting = () => {
     return (
         <>
             <div class="mt-6  md:mt-1 flex justify-center">
-                <div className=" flex items-center justify-center">
+                <div className="  overflow-hidden flex items-center justify-center">
                     <button
                         type="button"
                         onClick={openModal}
-                        className="rounded-xl bg-blue-400 bg-opacity-90  px-6 py-3 text-sm font-medium text-white hover:bg-opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        className="rounded-xl bg-blue-400 bg-opacity-90  px-6 py-3 text-sm font-bold text-white hover:bg-opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
                     >
                        GSL Setting
                     </button>

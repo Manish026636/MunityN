@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaTimes } from "react-icons/fa";
 
-function Modal() {
+function FeedbackMo() {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [textareaValue, setTextareaValue] = useState("");
@@ -24,10 +24,9 @@ function Modal() {
     <>
       {/* Button to open modal */}
       <button
-        className="bg-blue-500 font-bold text-white py-2 px-4 rounded-lg"
-        onClick={() => setIsOpen(true)}
-      >
-        Provide Feedback
+        className="bg-blue-500 font-bold text-white py-2 px-6 rounded-xl"
+        onClick={() => setIsOpen(true)}>
+        Give Feedback
       </button>
 
       {/* Modal overlay */}
@@ -35,13 +34,13 @@ function Modal() {
 
       {/* Modal content */}
       <div className={`fixed inset-0 flex justify-center items-center transition-all duration-500 ease-in-out ${isOpen ? 'visible' : 'hidden'}`}>
-        <div className="bg-gray-100 rounded-2xl p-6 max-w-lg">
+        <div className="bg-white rounded-2xl p-6 max-w-lg relative">
           {/* Close button */}
           <button
-            className="absolute top-0 right-0 text-gray-500 hover:text-gray-800"
+            className="absolute top-2 right-3 text-gray-500 hover:text-gray-800"
             onClick={() => setIsOpen(false)}
           >
-            <span className="sr-only">Close</span>
+            <FaTimes />
           </button>
 
           {/* Title */}
@@ -52,7 +51,7 @@ function Modal() {
             Note:
             <input
               type="text"
-              className="border-2 border-gray-400 rounded-lg px-4 py-2 w-full mt-1 focus:outline-none focus:border-blue-500"
+              className="border-2 border-gray-400 rounded-xl px-4 py-2 w-full mt-1 focus:outline-none focus:border-blue-500"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             />
@@ -62,7 +61,7 @@ function Modal() {
           <label className="block mb-2">
             Comments:
             <textarea
-              className="border-2 border-gray-400 rounded-lg px-4 py-2 w-full mt-1 focus:outline-none focus:border-blue-500"
+              className="border-2 border-gray-400 rounded-xl px-4 py-2 w-full mt-1 focus:outline-none focus:border-blue-500"
               value={textareaValue}
               onChange={(e) => setTextareaValue(e.target.value)}
             />
@@ -98,4 +97,4 @@ function Modal() {
   );
 }
 
-export default Modal;
+export default FeedbackMo;

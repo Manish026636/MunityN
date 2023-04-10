@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { CountryDropdown } from 'react-country-region-selector';
 import { FaUserAlt, FaTransgender, FaMapMarkerAlt, FaMobileAlt, FaEnvelope, FaGlobe } from "react-icons/fa";
 
-function Dadd() {
+function DelegateAdd() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [gender, setGender] = useState('');
@@ -134,4 +134,4 @@ function Dadd() {
   );
 }
 
-export default Dadd;
+export default DelegateAdd;

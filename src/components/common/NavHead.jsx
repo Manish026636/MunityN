@@ -26,7 +26,7 @@ import {
 
   FaBars,
 } from "react-icons/fa";
-import Gslsec from "./Gslsec";
+import UNMDSec from "../chairperson/UNMD/UNMDSec"
 
 
 // profile menu component
@@ -179,7 +179,7 @@ function NavList() {
 
 const NavHead = () => {
   const tabs = [
-    { id: 1, label: 'GSL', path: 'Dadd' },
+    { id: 1, label: 'GSL', path: 'tab1' },
     { id: 2, label: 'MD', path: 'tab2' },
     { id: 3, label: 'UNMD', path: 'tab3' },
     { id: 4, label: 'RoCa', path: 'tab4' }
@@ -243,7 +243,7 @@ const NavHead = () => {
       </Navbar>
       <div className="mb-40 bg-gray-100">
         <div className="flex justify-center items-center mt-10">
-          <div className="bg-gradient-to-r from-cyan-200 to-indigo-100 rounded-xl p-2">
+          <div className="bg-gradient-to-r from-yellow-600 via-yellow-600 to-yellow-500  shadow-lg rounded-xl p-2">
             {tabs.map(tab => (
               <button
                 key={tab.id}
@@ -256,7 +256,7 @@ const NavHead = () => {
             ))}
           </div>
         </div>
-        <Gslsec/>
+        <UNMDSec/>
         
       </div>
 

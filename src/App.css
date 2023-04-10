@@ -6,4 +6,8 @@ body,html{
     display: none;
   }
 
-  
+  @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+  .font-custom {
+    font-family: 'Archivo Black', sans-serif;
+  }
