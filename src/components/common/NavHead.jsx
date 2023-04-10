@@ -208,12 +208,6 @@ const NavHead = () => {
   const [isNavOpen, setIsNavOpen] = React.useState(false);
   const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
 
-  React.useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setIsNavOpen(false)
-    );
-  }, []);
 
   return (
     <>
@@ -241,7 +235,7 @@ const NavHead = () => {
           <NavList />
         </MobileNav>
       </Navbar>
-      <div className="mb-40 bg-gray-100">
+      <div className="mb-20 bg-gray-100">
         <div className="flex justify-center items-center mt-10">
           <div className="bg-gradient-to-r from-yellow-600 via-yellow-600 to-yellow-500  shadow-lg rounded-xl p-2">
             {tabs.map(tab => (
@@ -256,7 +250,6 @@ const NavHead = () => {
             ))}
           </div>
         </div>
-        <UNMDSec/>
         
       </div>
 

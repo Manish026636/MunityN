@@ -11,3 +11,8 @@ body,html{
   .font-custom {
     font-family: 'Archivo Black', sans-serif;
   }
+  @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+  .comitName {
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+  }
