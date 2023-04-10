@@ -1,6 +1,29 @@
 body,html{
   background-color: #f4f6f9;
 }
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
+.hide-scrollbar {
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  .bg-[#F4f6f9] {
+    position: relative;
+    &:hover {
+      .remove {
+        display: block;
+      }
+    }
+    .remove {
+      display: none;
+    }
+  }
+  button.add-speaker {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
 }

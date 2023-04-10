@@ -28,6 +28,7 @@ import {
 } from "react-icons/fa";
 import Gslsec from "./Gslsec";
 
+
 // profile menu component
 const profileMenuItems = [
   {
@@ -256,6 +257,7 @@ const NavHead = () => {
           </div>
         </div>
         <Gslsec/>
+        
       </div>
 
       {!tab && <CPDashboard />}
